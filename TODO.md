@@ -24,6 +24,12 @@
 - [ ] Test automation workflows triggered by chat inputs
 - [ ] Perform thorough end-to-end testing
 
+## Mobile Responsiveness
+- [x] Make sidebar overlay on mobile with hamburger menu
+- [x] Adjust chat layout for mobile screens
+- [x] Optimize buttons, inputs, and text sizes for mobile
+- [x] Ensure entire app is responsive on mobile and laptop
+
 ## Followup Steps
 - [ ] Gather user feedback on implemented features
 - [ ] Optimize performance and UX based on feedback
