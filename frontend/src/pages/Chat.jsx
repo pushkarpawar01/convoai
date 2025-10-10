@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaRobot, FaUserCircle, FaPaperPlane, FaPlus } from 'react-icons/fa';
-import { sendMessage, createConversation, fetchConversations, fetchMessages } from '../api';
+import { sendMessage, createConversation, fetchConversations } from '../api';
 import { useSearchParams } from 'react-router-dom';
 
 const Chat = () => {
@@ -40,8 +40,18 @@ const Chat = () => {
 
   const loadMessages = async (conversationId) => {
     try {
-      const data = await fetchMessages(conversationId);
-      setMessages(data);
+      const response = await fetch(`http://localhost:5000/api/chat/messages/${conversationId}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setMessages(data);
+      } else {
+        setMessages([]);
+      }
     } catch (error) {
       console.error('Failed to load messages:', error);
       setMessages([]);
