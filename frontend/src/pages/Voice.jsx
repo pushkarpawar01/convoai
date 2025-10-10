@@ -91,9 +91,9 @@ const Voice = () => {
       >
         <FaMicrophone /> {listening ? 'Stop' : 'Start'} Voice
       </button>
-      <div className="mt-6 bg-gray-800 rounded-lg p-4 text-gray-400 max-w-md mx-auto hover-lift fade-in min-h-[100px]">
-        <p><strong>You said:</strong> {transcript}</p>
-        <p><strong>AI response:</strong> {responseText}</p>
+      <div className="mt-6 bg-gray-800 rounded-lg p-4 text-gray-400 max-w-md mx-auto hover-lift fade-in min-h-[100px] overflow-auto max-h-64">
+        <p className="whitespace-pre-wrap break-words"><strong>You said:</strong> {transcript}</p>
+        <p className="whitespace-pre-wrap break-words"><strong>AI response:</strong> {responseText}</p>
       </div>
     </div>
   );
