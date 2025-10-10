@@ -56,6 +56,13 @@ export async function sendMessage(conversationId, sender, text) {
   return response.json();
 }
 
+export async function fetchMessages(conversationId) {
+  const response = await fetch(`${API_BASE_URL}/chat/messages/${conversationId}`, {
+    headers: getAuthHeaders(),
+  });
+  return response.json();
+}
+
 export async function handleVoiceMessage(userId, text) {
   const response = await fetch(`${API_BASE_URL}/chat/voice-message`, {
     method: 'POST',
