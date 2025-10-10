@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import Message from '../models/Message.js';
 import Conversation from '../models/Conversation.js';
 import Agent from '../models/Agent.js';

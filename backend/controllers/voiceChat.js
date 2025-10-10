@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import twilio from 'twilio';
 import Message from '../models/Message.js';
 import Conversation from '../models/Conversation.js';
@@ -9,11 +8,11 @@ const twilioAccountSid = process.env.TWILIO_ACCOUNT_SID;
 const twilioAuthToken = process.env.TWILIO_AUTH_TOKEN;
 
 if (!sambanovaApiKey || !sambanovaApiUrl) {
-  console.error('❌ SAMBANOVA_API_KEY or SAMBANOVA_API_URL not set.');
+  console.error(' SAMBANOVA_API_KEY or SAMBANOVA_API_URL not set.');
 }
 
 if (!twilioAccountSid || !twilioAuthToken) {
-  console.error('❌ TWILIO_ACCOUNT_SID or TWILIO_AUTH_TOKEN not set.');
+  console.error('TWILIO_ACCOUNT_SID or TWILIO_AUTH_TOKEN not set.');
 }
 
 const client = twilio(twilioAccountSid, twilioAuthToken);
@@ -46,7 +45,6 @@ export const handleVoiceMessage = async (req, res) => {
       content: m.text,
     }));
 
-    // Add system prompt
     const systemPrompt = {
       role: 'system',
       content: 'You are a helpful AI assistant specialized in sales and customer support for ConvoAI platform. Help users with product inquiries, provide information about features, assist with onboarding, troubleshoot issues, and guide them through sales processes. Be professional, friendly, and knowledgeable.'
@@ -59,7 +57,6 @@ export const handleVoiceMessage = async (req, res) => {
 
     while (attempt < maxRetries) {
       try {
-        // Send to SambaNova API
         const response = await fetch(sambanovaApiUrl, {
           method: 'POST',
           headers: {
@@ -85,7 +82,6 @@ export const handleVoiceMessage = async (req, res) => {
           throw new Error('Unexpected response format: missing message content.');
         }
 
-        // Save AI message
         const aiMessage = new Message({
           conversationId: conversation._id,
           sender: 'ai',
@@ -93,11 +89,10 @@ export const handleVoiceMessage = async (req, res) => {
         });
         await aiMessage.save();
 
-        // Return the AI response text for frontend TTS
         return res.json({ text: aiText });
 
       } catch (error) {
-        console.error('⚠️ Error:', error.message);
+        console.error('Error:', error.message);
         if (error.message.includes('429')) {
           attempt++;
           await delay(backoff);
@@ -110,7 +105,7 @@ export const handleVoiceMessage = async (req, res) => {
 
     return res.status(503).json({ message: 'Service temporarily unavailable' });
   } catch (err) {
-    console.error('❌ Server error:', err.message);
+    console.error('Server error:', err.message);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
