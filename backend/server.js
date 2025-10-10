@@ -18,7 +18,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
+  origin: process.env.FRONTEND_URL || 'https://convoai-5zieqy4lt-pushkar-pawars-projects-337efcb7.vercel.app',
   credentials: true
 }));
 app.use(express.json());
@@ -37,10 +37,10 @@ function authenticateToken(req, res, next) {
   });
 }
 
-app.use('/api/auth', authRoutes);
-app.use('/api/chat', authenticateToken, chatRoutes);
-app.use('/api/agents', authenticateToken, agentRoutes);
-app.use('/api/analytics', authenticateToken, analyticsRoutes);
+app.use('/auth', authRoutes);
+app.use('/chat', authenticateToken, chatRoutes);
+app.use('/agents', authenticateToken, agentRoutes);
+app.use('/analytics', authenticateToken, analyticsRoutes);
 // app.use('/api/workflows', authenticateToken, workflowRoutes); // Removed workflow routes
 
 mongoose.connect(process.env.MONGODB_URI, {
