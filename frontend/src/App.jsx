@@ -23,7 +23,7 @@ function App() {
       {isAuthenticated ? (
         <div className="flex h-screen bg-gray-900 text-white">
           <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <main className={`flex-1 md:ml-0 pt-16 md:pt-0 pl-12 md:pl-0 pr-4 md:pr-6 pb-4 md:pb-6 overflow-auto ${sidebarOpen ? 'md:ml-64' : ''}`}>
+          <main className={`flex-1 md:ml-64 pt-16 md:pt-0 p-4 md:p-6 overflow-auto`}>
             <button
               onClick={() => setSidebarOpen(true)}
               className={`md:hidden fixed top-4 left-4 z-50 bg-purple-600 p-2 rounded-lg transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
