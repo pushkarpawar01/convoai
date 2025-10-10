@@ -3,12 +3,14 @@ import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
 import Chat from './pages/Chat';
 import Voice from './pages/Voice';
 import History from './pages/History';
 import Analytics from './pages/Analytics';
 import Agents from './pages/Agents';
+import Landing from './pages/Landing';
 
 function App() {
   // For simplicity, assume user is authenticated if email exists in localStorage
@@ -33,8 +35,10 @@ function App() {
         </div>
       ) : (
         <Routes>
+          <Route path="/landing" element={<Landing />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="*" element={<Navigate to="/signin" replace />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<Navigate to="/landing" replace />} />
         </Routes>
       )}
     </Router>
