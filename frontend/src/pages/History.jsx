@@ -50,7 +50,7 @@ const History = () => {
     return (
       <div className="flex flex-col gap-6">
         <div>
-          <h1 className="text-3xl font-bold text-purple-600 mb-1">Conversation History</h1>
+          <h1 className="text-3xl font-bold text-purple-600 mb-1 pl-12 md:pl-0">Conversation History</h1>
           <p className="text-gray-400">View all your past conversations</p>
         </div>
         <div className="text-center text-gray-400">Loading conversations...</div>
@@ -61,7 +61,7 @@ const History = () => {
   return (
     <div className="flex flex-col gap-6 fade-in">
       <div className="slide-in-left">
-        <h1 className="text-3xl font-bold text-purple-600 mb-1">Conversation History</h1>
+        <h1 className="text-3xl font-bold text-purple-600 mb-1 pl-12 md:pl-0">Conversation History</h1>
         <p className="text-gray-400">View all your past conversations</p>
       </div>
       <div className="flex flex-col gap-4">

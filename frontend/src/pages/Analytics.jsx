@@ -30,7 +30,7 @@ const Analytics = () => {
   return (
     <div className="flex flex-col gap-6 fade-in">
       <div className="slide-in-left">
-        <h1 className="text-3xl font-bold text-purple-600 mb-1">Analytics Dashboard</h1>
+        <h1 className="text-3xl font-bold text-purple-600 mb-1 pl-12 md:pl-0">Analytics Dashboard</h1>
         <p className="text-gray-400">Track performance and conversation insights</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">

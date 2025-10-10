@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { FaComments, FaMicrophone, FaHistory, FaTachometerAlt, FaSignOutAlt } from 'react-icons/fa';
+import { FaComments, FaMicrophone, FaHistory, FaTachometerAlt, FaSignOutAlt, FaTimes } from 'react-icons/fa';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
   const userEmail = localStorage.getItem('userEmail') || 'p@gmail.com';
 
@@ -17,7 +17,13 @@ const Sidebar = () => {
       : 'flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800';
 
   return (
-    <aside className="w-64 bg-gray-900 flex flex-col justify-between p-6">
+    <aside className={`w-64 bg-gray-900 flex flex-col justify-between p-6 fixed inset-0 z-50 transform transition-transform md:relative md:translate-x-0 md:inset-auto ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
+      <button
+        onClick={onClose}
+        className="md:hidden absolute top-4 right-4 text-white text-xl"
+      >
+        <FaTimes />
+      </button>
       <div>
         <div className="flex items-center gap-2 mb-8">
           <div className="bg-purple-700 rounded-lg p-2">

@@ -78,7 +78,7 @@ const Dashboard = () => {
     <div className="flex flex-col gap-6 fade-in px-4 md:px-12">
       {/* Header */}
       <div className="flex flex-row items-center mb-2 slide-in-left gap-2">
-        <h1 className="text-2xl md:text-3xl font-bold text-purple-600">
+        <h1 className="text-2xl md:text-3xl font-bold text-purple-600 pl-12 md:pl-0">
           Dashboard
         </h1>
       </div>
