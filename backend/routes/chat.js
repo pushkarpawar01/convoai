@@ -1,5 +1,5 @@
 import express from 'express';
-import { getSambanovaResponse } from '../controllers/chatwithSambanova.js';
+import { getSambanovaResponse } from '../controllers/chatWithSambanova.js';
 import { handleVoiceMessage } from '../controllers/voiceChat.js';
 import Conversation from '../models/Conversation.js';
 import Message from '../models/Message.js';
