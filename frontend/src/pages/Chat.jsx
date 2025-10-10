@@ -85,14 +85,14 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-full fade-in">
-      <div className="flex justify-between items-center mb-4 slide-in-left">
-        <h2 className="text-xl font-semibold text-white">Chat</h2>
-        <div className="flex items-center gap-2">
+    <div className="flex flex-col h-full fade-in px-2 md:px-0">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 slide-in-left gap-2">
+        <h2 className="text-lg md:text-xl font-semibold text-white">Chat</h2>
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-2 w-full md:w-auto">
           <select
             value={selectedTask}
             onChange={(e) => setSelectedTask(e.target.value)}
-            className="p-2 rounded bg-gray-800 border border-gray-700 text-white"
+            className="p-2 rounded bg-gray-800 border border-gray-700 text-white text-sm"
           >
             <option value="sales">Sales</option>
             <option value="technical_support">Technical Support</option>
@@ -102,32 +102,32 @@ const Chat = () => {
           </select>
           <button
             onClick={handleNewChat}
-            className="flex items-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition button-hover pulse-glow"
+            className="flex items-center gap-2 bg-purple-600 text-white px-3 py-2 rounded-lg hover:bg-purple-700 transition button-hover pulse-glow text-sm"
           >
             <FaPlus /> New Chat
           </button>
         </div>
       </div>
-      <div className="flex flex-col flex-1 bg-gray-900 rounded-lg p-4 overflow-y-auto hover-lift">
+      <div className="flex flex-col flex-1 bg-gray-900 rounded-lg p-3 md:p-4 overflow-y-auto hover-lift">
         {messages.length === 0 && (
-          <div className="flex flex-col items-center justify-center flex-grow text-gray-400 fade-in">
-            <FaRobot className="text-purple-600 text-6xl mb-4 bounce-in" />
-            <h2 className="text-xl font-semibold mb-1 slide-in-left">Start a conversation</h2>
-            <p className="slide-in-right">Ask me anything, I'm here to help!</p>
+          <div className="flex flex-col items-center justify-center flex-grow text-gray-400 fade-in px-4">
+            <FaRobot className="text-purple-600 text-4xl md:text-6xl mb-4 bounce-in" />
+            <h2 className="text-lg md:text-xl font-semibold mb-1 slide-in-left text-center">Start a conversation</h2>
+            <p className="slide-in-right text-center text-sm md:text-base">Ask me anything, I'm here to help!</p>
           </div>
         )}
         {messages.map(({ id, _id, text, sender }, index) => (
           <div
             key={id || _id || index}
-            className={`flex gap-3 mb-4 stagger-animation ${
+            className={`flex gap-2 md:gap-3 mb-4 stagger-animation ${
               sender === 'user' ? 'justify-end' : 'justify-start'
             }`}
           >
             {sender === 'ai' && (
-              <FaRobot className="text-purple-600 text-3xl mt-1 bounce-in" />
+              <FaRobot className="text-purple-600 text-2xl md:text-3xl mt-1 bounce-in flex-shrink-0" />
             )}
             <div
-              className={`max-w-[70%] p-4 rounded-lg whitespace-pre-wrap hover-lift ${
+              className={`max-w-[85%] md:max-w-[70%] p-3 md:p-4 rounded-lg whitespace-pre-wrap hover-lift text-sm md:text-base ${
                 sender === 'user'
                   ? 'bg-purple-600 text-white rounded-br-none'
                   : 'bg-gray-800 text-gray-300 rounded-bl-none'
@@ -136,7 +136,7 @@ const Chat = () => {
               {text}
             </div>
             {sender === 'user' && (
-              <FaUserCircle className="text-gray-400 text-3xl mt-1 bounce-in" />
+              <FaUserCircle className="text-gray-400 text-2xl md:text-3xl mt-1 bounce-in flex-shrink-0" />
             )}
           </div>
         ))}
@@ -149,11 +149,11 @@ const Chat = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full rounded-lg bg-gray-800 border border-purple-600 px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 resize-none transition-all duration-300"
+          className="w-full rounded-lg bg-gray-800 border border-purple-600 px-3 md:px-4 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 resize-none transition-all duration-300 text-sm md:text-base"
         />
         <button
           onClick={handleSend}
-          className="mt-2 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-semibold py-2 px-4 rounded-lg float-right hover:from-purple-700 hover:to-purple-500 transition button-hover pulse-glow"
+          className="mt-2 bg-gradient-to-r from-purple-600 to-purple-400 text-white font-semibold py-2 px-3 md:px-4 rounded-lg float-right hover:from-purple-700 hover:to-purple-500 transition button-hover pulse-glow"
           aria-label="Send message"
         >
           <FaPaperPlane />
