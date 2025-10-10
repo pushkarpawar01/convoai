@@ -92,7 +92,7 @@ const Chat = () => {
           <select
             value={selectedTask}
             onChange={(e) => setSelectedTask(e.target.value)}
-            className="p-2 rounded bg-gray-800 border border-gray-700 text-white text-sm"
+            className="p-2 rounded bg-gray-800 border border-gray-700 text-white text-sm w-full md:w-auto"
           >
             <option value="sales">Sales</option>
             <option value="technical_support">Technical Support</option>
@@ -127,10 +127,10 @@ const Chat = () => {
               <FaRobot className="text-purple-600 text-2xl md:text-3xl mt-1 bounce-in flex-shrink-0" />
             )}
             <div
-              className={`max-w-[85%] md:max-w-[70%] p-3 md:p-4 rounded-lg whitespace-pre-wrap hover-lift text-sm md:text-base ${
+              className={`max-w-[85%] md:max-w-[70%] p-3 md:p-4 rounded-lg whitespace-pre-wrap break-words hover-lift text-sm md:text-base ${
                 sender === 'user'
                   ? 'bg-purple-600 text-white rounded-br-none'
-                  : 'bg-gray-800 text-gray-300 rounded-bl-none'
+                  : 'bg-gray-800 text-gray-300 rounded-bl-none overflow-auto max-h-64'
               }`}
             >
               {text}
