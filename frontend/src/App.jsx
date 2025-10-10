@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
@@ -11,25 +11,17 @@ import History from './pages/History';
 import Analytics from './pages/Analytics';
 import Agents from './pages/Agents';
 import Landing from './pages/Landing';
-import { FaBars } from 'react-icons/fa';
 
 function App() {
   // For simplicity, assume user is authenticated if email exists in localStorage
   const isAuthenticated = !!localStorage.getItem('userEmail');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <Router>
       {isAuthenticated ? (
         <div className="flex h-screen bg-gray-900 text-white">
-          <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-          <main className={`flex-1 md:ml-64 pt-16 md:pt-0 p-4 md:p-6 overflow-auto`}>
-            <button
-              onClick={() => setSidebarOpen(true)}
-              className={`md:hidden fixed top-4 left-4 z-50 bg-purple-600 p-2 rounded-lg transition-opacity ${sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-            >
-              <FaBars className="text-white" />
-            </button>
+          <Sidebar />
+          <main className="flex-1 p-6 overflow-auto">
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/chat" element={<Chat />} />
