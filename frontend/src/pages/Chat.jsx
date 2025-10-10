@@ -86,13 +86,13 @@ const Chat = () => {
 
   return (
     <div className="flex flex-col h-full fade-in px-2 md:px-0">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 slide-in-left gap-2">
+      <div className="flex flex-row flex-wrap justify-between items-center mb-4 slide-in-left gap-2 ml-12 -mt-2">
         <h2 className="text-lg md:text-xl font-semibold text-white">Chat</h2>
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-2 w-full md:w-auto">
+        <div className="flex flex-row flex-wrap items-center gap-2 w-auto md:w-auto">
           <select
             value={selectedTask}
             onChange={(e) => setSelectedTask(e.target.value)}
-            className="p-2 rounded bg-gray-800 border border-gray-700 text-white text-sm w-full md:w-auto"
+            className="p-2 rounded bg-gray-800 border border-gray-700 text-white text-sm min-w-[120px]"
           >
             <option value="sales">Sales</option>
             <option value="technical_support">Technical Support</option>

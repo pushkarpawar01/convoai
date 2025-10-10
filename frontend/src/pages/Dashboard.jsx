@@ -66,11 +66,11 @@ const Dashboard = () => {
 
   return (
     <div className="flex flex-col gap-4 md:gap-6 fade-in px-2 md:px-0">
-      <div className="slide-in-left">
-        <h1 className="text-2xl md:text-3xl font-bold text-purple-600 mb-1">Dashboard</h1>
-        <p className="text-gray-400 text-sm md:text-base text-center md:text-left">Overview of your sales and support conversations</p>
+      <div className="flex flex-row items-center mb-4 slide-in-left gap-2 ml-12 -mt-2">
+        <h1 className="text-2xl md:text-3xl font-bold text-purple-600">Dashboard</h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <p className="text-gray-400 text-sm md:text-base text-center md:text-left ml-12 -mt-4">Overview of your sales and support conversations</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 ml-12 -mt-8">
         {statItems.map(({ id, title, value, description, icon, bgColor }) => (
           <div key={id} className="bg-gray-800 rounded-lg p-4 md:p-6 flex flex-col gap-2 shadow-md hover-lift stagger-animation">
             <div className={`w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center ${bgColor} mb-2 bounce-in`}>
@@ -82,7 +82,7 @@ const Dashboard = () => {
           </div>
         ))}
       </div>
-      <div className="bg-gray-800 rounded-lg p-4 md:p-6 shadow-md flex flex-col gap-3 md:gap-4 hover-lift fade-in">
+      <div className="bg-gray-800 rounded-lg p-4 md:p-6 shadow-md flex flex-col gap-3 md:gap-4 hover-lift fade-in ml-12 -mt-8">
         <h2 className="text-lg md:text-xl font-semibold text-white slide-in-left">Welcome to ConvoAI</h2>
         <p className="text-gray-400 text-sm md:text-base slide-in-right">Your AI-powered conversational assistant platform</p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mt-3 md:mt-4">
