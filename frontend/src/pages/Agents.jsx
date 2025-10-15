@@ -53,7 +53,7 @@ const Agents = () => {
 
   return (
     <div className="p-6 bg-gray-900 text-white rounded-lg">
-      <h1 className="text-2xl font-bold mb-4">AI Agents Management</h1>
+      <h1 className="text-2xl font-bold mb-4 pl-12 md:pl-0">AI Agents Management</h1>
       <div className="mb-4 flex flex-wrap gap-2">
         <input
           type="text"

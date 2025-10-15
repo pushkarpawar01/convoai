@@ -40,7 +40,7 @@ const Chat = () => {
 
   const loadMessages = async (conversationId) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/chat/messages/${conversationId}`, {
+      const response = await fetch(`http://localhost:5000/chat/messages/${conversationId}`, {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('token')}`,
